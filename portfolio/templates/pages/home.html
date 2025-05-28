@@ -1,14 +1,37 @@
 {% include 'partials/head.html' %}
 <body>
-    <header class="main-header-container">
-        <div class="main-header-container">
-            <h1>
-                <a class="main-logo" href="/">
-                    <i class="fa-solid fa-palette"></i>
-                    <span class="main-logo-text">Portfólio da Maricotinha</span>
-                </a>
-            </h1>
+    {% include 'partials/header.html' %}
+    {% include 'partials/search.html' %}
+    <main class="main-content-container">
+        <div class="main-content main-content-list container">
+            <div class="photo photo-list-item">
+                <div class="photo-cover">
+                    <img src="https://placehold.co/1280x720/transparent/269fe6" alt="Temporário">
+                </div>
+                <div class="photo-title-container">
+                    <h2 class="photo-title">Título do trabalho</h2>
+                </div>
+                <div class="photo-author">
+                    <span class="photo-author-item">
+                        <i class="fas fa-user"></i>
+                        Marianinha Moraes
+                    </span>
+                    <span class="photo-author-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        27/05/2025 às 22:40
+                    </span>
+                    <span class="photo-author-item">
+                        <a href="portfolio/categoria/cafe-da-manha">
+                            <i class="fas fa-layer-group"></i>
+                            Café da Manhã
+                        </a>
+                    </span>
+                </div>
+                <div class="photo-content">
+                    <p>Existe uma maneira de fazer um café da manhã espetacular, e para isso basta que esteja com fome e com muita vontade de fazer seu próprio café da manhã!!!!!</p>
+                </div>
+            </div>
         </div>
-    </header>
+    </main>
 </body>
 </html>
