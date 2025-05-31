@@ -1,8 +1,12 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from utils.fabrica import make_photo
 
 def home(request):
-    return render(request, 'pages/home.html')
+    return render(request, 'pages/home.html', context={
+        'photos':[make_photo() for _ in range(10)],
+    })
 
-def contato(request):
-    return HttpResponse('Contato')
+def photo(request, id):
+    return render(request, 'pages/photo-view.html', context={
+        'photo': make_photo(),
+    })

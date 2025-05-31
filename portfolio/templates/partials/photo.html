@@ -1,28 +1,28 @@
 <div class="photo photo-list-item">
                 <div class="photo-cover">
-                    <img src="https://placehold.co/1280x720/transparent/269fe6" alt="Temporário">
+                    <img src="{{ photo.cover.url }}" alt="Temporário">
                 </div>
                 <div class="photo-title-container">
-                    <h2 class="photo-title">Título do trabalho</h2>
+                    <h2 class="photo-title">{{ photo.title }}</h2>
                 </div>
                 <div class="photo-author">
                     <span class="photo-author-item">
                         <i class="fas fa-user"></i>
-                        Marianinha Moraes
+                        {{ photo.author.first_name }} {{ photo.author.last_name }}
                     </span>
                     <span class="photo-author-item">
                         <i class="fas fa-calendar-alt"></i>
-                        27/05/2025 às 22:40
+                        {{ photo.created_at|date:"d/m/Y" }} às {{ photo.created_at|date:"H:i" }}
                     </span>
                     <span class="photo-author-item">
                         <a href="portfolio/categoria/cafe-da-manha">
                             <i class="fas fa-layer-group"></i>
-                            Café da Manhã
+                            {{ photo.category.name }}
                         </a>
                     </span>
                 </div>
                 <div class="photo-content">
-                    <p>Existe uma maneira de fazer um café da manhã espetacular!!!!!</p>
+                    {{ photo.description }}
                 </div>
                 <div class="photo-meta-container">
                     <div class="photo-meta photo-preparation">
