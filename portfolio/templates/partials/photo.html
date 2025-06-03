@@ -1,9 +1,13 @@
 <div class="photo photo-list-item">
                 <div class="photo-cover">
-                    <img src="{{ photo.cover.url }}" alt="Temporário">
+                    <a href="{% url 'photos-photo' photo.id %}">
+                        <img src="{{ photo.cover.url }}" alt="Temporário">
+                    </a>
                 </div>
                 <div class="photo-title-container">
-                    <h2 class="photo-title">{{ photo.title }}</h2>
+                    <a href="{% url 'photos-photo' photo.id %}">
+                        <h2 class="photo-title">{{ photo.title }}</h2>
+                    </a>
                 </div>
                 <div class="photo-author">
                     <span class="photo-author-item">
@@ -38,10 +42,12 @@
                         </div>
                     </div>
                 </div>
-                <footer class="photo-footer">
-                    <a class="photo-read-more button button-dark button-full-width" href="/photo/3">
-                        <i class="fas fa-eye"></i>
-                        <span>Ver mais...</span>
-                    </a>
-                </footer>
+                {% if is_detail_page is not True %}
+                    <footer class="photo-footer">
+                        <a class="photo-read-more button button-dark button-full-width" href="/photo/3">
+                            <i class="fas fa-eye"></i>
+                            <span>Ver mais...</span>
+                        </a>
+                    </footer>
+                {% endif %}
             </div>

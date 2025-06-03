@@ -9,4 +9,5 @@ def home(request):
 def photo(request, id):
     return render(request, 'pages/photo-view.html', context={
         'photo': make_photo(),
+        'is_detail_page': True,
     })
