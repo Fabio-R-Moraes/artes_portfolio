@@ -212,3 +212,27 @@ h1, h2, h3, h4, h5, h6 {
 .main-footer a:hover {
     filter: brightness(.8);
 }
+.historia h1, 
+.historia h2,
+.historia h3,
+.historia h4,
+.historia h5,
+.historia h6,
+.historia p,
+.historia pre {
+    margin: 2rem 0;
+}
+.historia ol,
+.historia ul {
+    margin: 2rem;
+    padding: 0 2rem;
+}
+.center {
+    text-align: center;
+}
+.m-x {
+    margin: 0 var(--spacing-gutter-medium);
+}
+.m-y {
+    margin: var(--spacing-gutter-medium) 0;
+}

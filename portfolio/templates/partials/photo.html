@@ -12,10 +12,14 @@
                 <div class="photo-author">
                     <span class="photo-author-item">
                         <i class="fas fa-user"></i>
-                        {% if photo.author.first_name %}
-                            {{ photo.author.first_name }} {{ photo.author.last_name }}
+                        {% if photo.author is not None %}
+                            {% if photo.author.first_name %}
+                                {{ photo.author.first_name }} {{ photo.author.last_name }}
+                            {% else %}
+                                {{ photo.author.username }}
+                            {% endif %}
                         {% else %}
-                            {{ photo.author.username }}
+                            Desconhecido
                         {% endif %}
                     </span>
                     {% if photo.category is not None %}
@@ -26,13 +30,16 @@
                             </a>
                         </span>
                     {% endif %}
-                    <span class="photo-author-item">
+                    <hr><span class="photo-author-item">
                         <i class="fas fa-calendar-alt"></i>
                         {{ photo.criado_em|date:"d/m/Y" }} às {{ photo.criado_em|date:"H:i" }}
                     </span>
                     <span class="photo-author-item">
                         <i class="fa-solid fa-brazilian-real-sign"></i>
                         {{ photo.preco }}
+                    </span>
+                    <hr><span class="photo-author-item">
+                        {{ photo.descricao }}
                     </span>
                 </div>
                 <div class="photo-content">
@@ -62,7 +69,11 @@
                 {% endif %}
                 {% if is_detail_page is True %}
                     <div class="historia">
-                        {{ photo.historia|linebreaksbr }}
+                        {% if photo.historia_html is True %}
+                            {{ photo.historia|safe}}
+                        {% else %}
+                            {{ photo.historia|linebreaksbr }}
+                        {% endif %}
                     </div>
                 {% endif %}
             </div>
