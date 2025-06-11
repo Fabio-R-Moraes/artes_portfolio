@@ -10,7 +10,7 @@ class Category(models.Model):
 class Photos(models.Model):
     titulo = models.CharField(max_length=65)
     descricao = models.CharField(max_length=165)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True)
     historia = models.TextField()
     historia_html = models.BooleanField(default=False)
     preco = models.DecimalField(decimal_places=2, max_digits=9)

@@ -8,4 +8,4 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Photos)
 class PhotosAdmin(admin.ModelAdmin):
-    ...
+    list_display = ('titulo', 'slug')
