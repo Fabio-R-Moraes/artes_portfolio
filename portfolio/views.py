@@ -2,13 +2,29 @@ from django.shortcuts import render, get_list_or_404, get_object_or_404
 from .models import Photos
 from django.http import Http404
 from django.db.models import Q
+from django.core.paginator import Paginator
+from utils.pagination import make_pagination_range
 
 def home(request):
     photos = get_list_or_404(Photos.objects.filter(
         esta_publicado=True
         ).order_by('-id'))
+    
+    try:
+        pagina_atual = int(request.GET.get('page',1))
+    except ValueError:
+        pagina_atual = 1
+
+    paginador = Paginator(photos, 6)
+    pagina_objeto = paginador.get_page(pagina_atual)
+    range_paginacao = make_pagination_range(
+        paginador.page_range,
+        4,
+        pagina_atual,
+    )
     return render(request, 'pages/home.html', context={
-        'photos': photos,
+        'photos': pagina_objeto,
+        'range_paginacao': range_paginacao,
     })
 
 def category(request, category_id):
