@@ -1,4 +1,5 @@
 import math
+from django.core.paginator import Paginator
 
 def make_pagination_range(
         range_pagina,
@@ -31,3 +32,18 @@ def make_pagination_range(
         'primeira_pagina_fora_do_range': pagina_atual>range_meio,
         'ultima_pagina_fora_do_range': range_final<total_paginas
     }
+
+def make_pagination(request, query_photos, items_per_page, qtde_page = 4):
+    try:
+        pagina_atual = int(request.GET.get('page',1))
+    except ValueError:
+        pagina_atual = 1
+
+    paginador = Paginator(query_photos, items_per_page)
+    pagina_objeto = paginador.get_page(pagina_atual)
+    range_paginacao = make_pagination_range(
+        paginador.page_range,
+        qtde_page,
+        pagina_atual,
+    )
+    return pagina_objeto, range_paginacao
