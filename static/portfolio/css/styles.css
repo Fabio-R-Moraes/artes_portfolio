@@ -253,3 +253,18 @@ h1, h2, h3, h4, h5, h6 {
 .pagination .pagina-atual {
     background: var(--color-primary-dark);
 }
+
+/* Formulários */
+.form-content {
+    max-width: 64rem;
+    margin: 0 auto;
+    margin-bottom: var(--spacing-gutter-medium);
+}
+.form-content label,
+.form-content help_text,
+.errorlist{
+    display: block;
+    margin: 5rem 0;
+    font-size: 1.4rem;
+    list-style-type: none;
+}
