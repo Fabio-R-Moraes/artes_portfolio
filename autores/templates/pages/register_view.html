@@ -2,8 +2,9 @@
 {% block title %}Registro | {% endblock title %}
 {% block conteudo %}
     <div class="main-content center container">
-        <h2>Registro {{ request.session.numero }}</h2>
+        <h2>Formulário de Registro</h2>
     </div>
+    {% include 'partials/mensagens.html' %}
     <div class="main-content container">
         <form action="{% url 'autores:create' %}" method="POST">
             {% csrf_token %}
@@ -21,6 +22,15 @@
                     </div>
                 {% endfor %}
             </div>
+            {% if forms.errors %}
+                <div class="form-content form-content-grid">
+                    <div class="form-group">
+                        <div class="message message-error">
+                            Por favor, corrija os erros no formulário!!!
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
             <div class="form-content form-content-grid">
                 <div class="form-group">
                     <button type="submit">Enviar</button>
