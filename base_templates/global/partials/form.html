@@ -1,0 +1,33 @@
+<div class="main-content container">
+        <form action="{% url 'autores:create' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-content form-content-grid">
+                {% for campos in form %}
+                    <div class="form-group">
+                        <label for="{{ campos.id_for_label }}">{{ campos.label }}</label>
+                        {{ campos }}
+
+                        {% if campos.help_text %}
+                            <p class="healp-text">{{ campos.help_text }}</p>
+                        {% endif %}
+
+                        {{ campos.errors }}
+                    </div>
+                {% endfor %}
+            </div>
+            {% if forms.errors %}
+                <div class="form-content form-content-grid">
+                    <div class="form-group">
+                        <div class="message message-error">
+                            Por favor, corrija os erros no formulário!!!
+                        </div>
+                    </div>
+                </div>
+            {% endif %}
+            <div class="form-content form-content-grid">
+                <div class="form-group">
+                    <button type="submit">Enviar</button>
+                </div>
+            </div>
+        </form>
+    </div>

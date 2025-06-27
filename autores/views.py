@@ -2,15 +2,15 @@ from django.shortcuts import render, redirect
 from .forms import RegisterForm
 from django.http import Http404
 from django.contrib import messages
+from django.urls import reverse
 
 def register_view(request):
-    request.session['numero'] = request.session.get('numero') or 1
-    request.session['numero'] += 1
     register_form_data = request.session.get('register_form_data', None)
     form = RegisterForm(register_form_data)
 
     return render(request, 'pages/register_view.html', context={
         'form': form,
+        'form_action': reverse('autores:create')
     })
 
 def register_create(request):

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    {% include 'global/partials/head.html' %}
+    <title>{% block title %}{% endblock %}Portfólio</title>
+</head>
+<body>
+    {% include 'global/partials/header.html' %}
+    {% include 'global/partials/search.html' %}
+    <main class="main-content-container">
+        {% block conteudo %}{% endblock %}
+        {% include 'global/partials/pagination.html' %}
+    </main>
+    {% include 'global/partials/footer.html' %}
+</body>
+</html>
