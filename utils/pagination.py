@@ -34,6 +34,7 @@ def make_pagination_range(
     }
 
 def make_pagination(request, query_photos, items_per_page, qtde_page = 4):
+    print(f'QUANTIDADE DE FOTOS: {items_per_page}')
     try:
         pagina_atual = int(request.GET.get('page',1))
     except ValueError:

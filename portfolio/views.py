@@ -5,7 +5,7 @@ from django.db.models import Q
 from utils.pagination import make_pagination
 import os
 
-PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',6)
+PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',9)
 
 def home(request):
     photos = get_list_or_404(Photos.objects.filter(
