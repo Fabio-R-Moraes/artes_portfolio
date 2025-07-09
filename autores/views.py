@@ -42,6 +42,7 @@ def login_view(request):
     })
 
 def login_create(request):
+
     if not request.POST:
         raise Http404()
     
@@ -62,7 +63,7 @@ def login_create(request):
     else:
         messages.errorq(request, 'Usuário ou senha inválidos!!!')
 
-    return redirect(login_url)
+    return redirect(reverse('autores:dashboard'))
 
 @login_required(login_url='autores:login', redirect_field_name='next')
 def logout_view(request):
@@ -74,3 +75,7 @@ def logout_view(request):
     
     logout(request)
     return redirect(reverse('autores:login'))
+    
+@login_required(login_url='autores:login', redirect_field_name='next')
+def dashboard(request):
+    return render(request, 'pages/dashboard.html')

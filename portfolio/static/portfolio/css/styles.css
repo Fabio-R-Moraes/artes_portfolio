@@ -351,6 +351,13 @@ h1, h2, h3, h4, h5, h6 {
     font-size: 1.6rem;
 }
 
+/*Autores*/
+.login-message {
+    margin: 1rem 0;
+}
+
+/*Generics*/
+
 @media(max-width: 600px) {
     .main-content-list,
     .form-content-grid {

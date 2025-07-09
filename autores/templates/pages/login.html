@@ -3,18 +3,7 @@
 {% block conteudo %}
     <div class="main-content center container">
         <h2>Login</h2>
-        {% if request.user.is_authenticated %}
-            <div>
-                Você está logado com {{ request.user.username}}. 
-                Por favor, 
-                <form class="inline-form" action="{% url 'autores:logout' %}" method="post">
-                    {% csrf_token %}
-                    <input type="hidden" name="username" value="{{ request.user.username }}">
-                    <button class="plaintext-button" type="submit">clique aqui</button>
-                </form>
-                 para deslogar!
-            </div>
-        {% endif %}
+        {% include 'partials/login_messages.html' %}
     </div>
     {% include 'global/partials/mensagens.html' %}
     {% include 'global/partials/form.html' %}
