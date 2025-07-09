@@ -4,6 +4,20 @@
 <div class="main-content center container">
     <h2>Dashboard({{ user }})</h2>
     {% include 'partials/login_messages.html' %}
+    <div class="authors-dashboard-container">
+        <h3>Seu trabalho</h3>
+        <ul>
+            {% for photo in photos %}
+                <li>
+                    <a href="{% url 'autores:dashboard_photo_edit' photo.id %}">{{ photo.titulo }}</a>
+                </li>
+            {% empty %}
+                <li>
+                    <p>Você não tem trabalhos... crie um!!!!</p>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 </div>
 {% include 'global/partials/mensagens.html' %}
 {% endblock conteudo %}

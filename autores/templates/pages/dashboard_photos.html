@@ -1,0 +1,12 @@
+{% extends 'global/base.html' %}
+{% block title %}Dashboard Trabalhos |{% endblock title %}
+{% block conteudo %}
+<div class="main-content center container">
+    <h2>Dashboard Trabalhos</h2>
+    {% include 'partials/login_messages.html' %}
+    <div class="authors-dashboard-container">
+        {% include 'global/partials/form.html' %}
+    </div>
+</div>
+{% include 'global/partials/mensagens.html' %}
+{% endblock conteudo %}

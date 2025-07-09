@@ -6,6 +6,8 @@ from django.urls import reverse
 from .forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
+from portfolio.models import Photos
+from autores.forms.photo_form import AuthorsPhotoForm
 
 def register_view(request):
     register_form_data = request.session.get('register_form_data', None)
@@ -78,4 +80,30 @@ def logout_view(request):
     
 @login_required(login_url='autores:login', redirect_field_name='next')
 def dashboard(request):
-    return render(request, 'pages/dashboard.html')
+    my_photos = Photos.objects.filter(
+        esta_publicado = False,
+        author = request.user
+    )
+    return render(request, 'pages/dashboard.html', context={
+        'photos': my_photos,
+    })
+
+@login_required(login_url='autores:login', redirect_field_name='next')
+def dashboard_photo_edit(request, id):
+    my_photo = Photos.objects.filter(
+        esta_publicado = False,
+        author = request.user,
+        pk = id
+    ).first()
+
+    if not my_photo:
+        raise Http404;
+
+    formulary = AuthorsPhotoForm(
+        data = request.POST or None,
+        instance=my_photo
+    )
+
+    return render(request, 'pages/dashboard_photos.html', context={
+        'form': formulary,
+    })
