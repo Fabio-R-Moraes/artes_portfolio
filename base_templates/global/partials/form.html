@@ -1,9 +1,9 @@
 <div class="main-content container">
-        <form action="{{ form_action }}" method="POST">
+        <form class="main-form" action="{{ form_action }}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="form-content form-content-grid">
                 {% for campos in form %}
-                    <div class="form-group">
+                    <div class="form-group {{ campos.field.widget.attrs.class }}">
                         <label for="{{ campos.id_for_label }}">{{ campos.label }}</label>
                         {{ campos }}
 
@@ -13,6 +13,11 @@
 
                         {{ campos.errors }}
                     </div>
+                    {% if campos.name == 'photo_image' and campos.value.url %}
+                        <div class="span-2">
+                            <img src="{{ campos.value.url }}" alt="Capa para {{ photo.titulo }}">
+                        </div>
+                    {% endif %}
                 {% endfor %}
             </div>
             {% if forms.errors %}

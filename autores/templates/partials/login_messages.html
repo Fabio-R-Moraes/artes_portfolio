@@ -1,7 +1,7 @@
 {% if request.user.is_authenticated %}
     <div class="login-message">
         Você está logado com {{ request.user.username}}. 
-        Por favor, 
+        <a href="{% url 'autores:dashboard' %}">Veja seus trabalhos</a> ou, 
         <form class="inline-form" action="{% url 'autores:logout' %}" method="post">
             {% csrf_token %}
             <input type="hidden" name="username" value="{{ request.user.username }}">

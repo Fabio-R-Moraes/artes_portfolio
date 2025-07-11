@@ -101,8 +101,19 @@ def dashboard_photo_edit(request, id):
 
     formulary = AuthorsPhotoForm(
         data = request.POST or None,
+        files = request.FILES or None, 
         instance=my_photo
     )
+
+    if formulary.is_valid():
+        photo = formulary.save(commit=False)
+        photo.author = request.user
+        photo.historia_html = False
+        photo.esta_publicado = False
+
+        photo.save()
+        messages.success(request, 'Seu trabalho foi salvo com sucesso!!!')
+        return redirect(reverse('autores:dashboard_photo_edit', args=(id,)))
 
     return render(request, 'pages/dashboard_photos.html', context={
         'form': formulary,
