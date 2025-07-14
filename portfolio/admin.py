@@ -8,7 +8,7 @@ class CategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Photos)
 class PhotosAdmin(admin.ModelAdmin):
-    list_display = ['id', 'titulo', 'criado_em', 'author', 'esta_publicado']
+    list_display = ['id', 'titulo', 'criado_em', 'author', 'preco', 'esta_publicado']
     list_display_links = ['titulo', 'criado_em']
     search_fields = ['id', 'titulo', 'criado_em', 'descricao', 'slug', 'historia']
     list_filter = ['category', 'author', 'esta_publicado']

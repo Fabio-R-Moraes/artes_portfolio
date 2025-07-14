@@ -1,11 +1,11 @@
 <div class="photo photo-list-item">
                 <div class="photo-cover">
-                    <a href="{% url 'portfolio:photos-photo' photo.id %}">
+                    <a href="{{ portfolio.get_absolute_url }}">
                         <img src="{{ photo.photo_image.url }}" alt="Temporário">
                     </a>
                 </div>
                 <div class="photo-title-container">
-                    <a href="{% url 'portfolio:photos-photo' photo.id %}">
+                    <a href="{{ portfolio.get_absolute_url }}">
                         <h2 class="photo-title">{{ photo.titulo }}</h2>
                     </a>
                 </div>

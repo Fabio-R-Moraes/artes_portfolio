@@ -10,6 +10,13 @@
             {% for photo in photos %}
                 <li>
                     <a href="{% url 'autores:dashboard_photo_edit' photo.id %}">{{ photo.titulo }}</a>
+                    <form action="{% url 'autores:dashboard_photo_delete' %}" class="inline-form form-delete" method="POST">
+                        {% csrf_token %}
+                        <input type="hidden" name="id" value="{{ photo.id }}">
+                        <button class="plaintext-button" type="submit">
+                            🗑️
+                        </button>
+                    </form>
                 </li>
             {% empty %}
                 <li>

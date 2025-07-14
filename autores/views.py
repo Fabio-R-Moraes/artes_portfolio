@@ -97,7 +97,7 @@ def dashboard_photo_edit(request, id):
     ).first()
 
     if not my_photo:
-        raise Http404;
+        raise Http404()
 
     formulary = AuthorsPhotoForm(
         data = request.POST or None,
@@ -118,3 +118,47 @@ def dashboard_photo_edit(request, id):
     return render(request, 'pages/dashboard_photos.html', context={
         'form': formulary,
     })
+
+@login_required(login_url='autores:login', redirect_field_name='next')
+def dashboard_photo_new(request):
+    formulary = AuthorsPhotoForm(
+        data = request.POST or None,
+        files = request.FILES or None,
+    )
+
+    if formulary.is_valid():
+        photo:Photos = formulary.save(commit=False)
+        photo.author = request.user
+        photo.historia_html = False
+        photo.esta_publicado = False
+
+        photo.save()
+        messages.success(request, 'Seu trabalho foi salvo com sucesso!!!')
+        return redirect(reverse('autores:dashboard_photo_edit', args=(photo.id,)))
+    
+    return render(request, 'pages/dashboard_photos.html', context={
+        'form': formulary,
+        'form_action': reverse('autores:dashboard_photo_new'),
+    })
+
+@login_required(login_url='autores:login', redirect_field_name='next')
+def dashboard_photo_delete(request):
+    if not request.POST:
+        raise Http404()
+    
+    POST = request.POST
+    id = POST.get('id')
+    
+    my_photo = Photos.objects.filter(
+        esta_publicado = False,
+        author = request.user,
+        pk = id,
+    ).first()
+
+    if not my_photo:
+        raise Http404()
+    
+    my_photo.delete()
+    messages.success(request, 'Seu trabalho foi excluído com sucesso!!!')
+
+    return redirect(reverse('autores:dashboard'))

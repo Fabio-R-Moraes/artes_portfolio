@@ -11,4 +11,6 @@ urlpatterns = [
     path('logout/',views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
     path('dashboard/photo/<int:id>/edit/', views.dashboard_photo_edit, name='dashboard_photo_edit'),
+    path('dashboard/photo/new/', views.dashboard_photo_new, name='dashboard_photo_new'),
+    path('dashboard/photo/delete/', views.dashboard_photo_delete, name='dashboard_photo_delete'),
 ]
