@@ -10,7 +10,16 @@ urlpatterns = [
     path('login/create/', views.login_create, name='login_create'),
     path('logout/',views.logout_view, name='logout'),
     path('dashboard/', views.dashboard, name='dashboard'),
-    path('dashboard/photo/<int:id>/edit/', views.dashboard_photo_edit, name='dashboard_photo_edit'),
-    path('dashboard/photo/new/', views.dashboard_photo_new, name='dashboard_photo_new'),
-    path('dashboard/photo/delete/', views.dashboard_photo_delete, name='dashboard_photo_delete'),
+    path(
+        'dashboard/photo/new/', 
+        views.DashboardPhotos.as_view(), 
+        name='dashboard_photo_new'),
+    path(
+        'dashboard/photo/<int:id>/edit/', 
+        views.DashboardPhotos.as_view(), 
+        name='dashboard_photo_edit'),
+    path(
+        'dashboard/photo/delete/', 
+        views.DashboardPhotosDelete.as_view(), 
+        name='dashboard_photo_delete'),
 ]

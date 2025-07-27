@@ -1,13 +1,12 @@
 from django.shortcuts import render, redirect
-from .forms import RegisterForm
+from autores.forms import RegisterForm
 from django.http import Http404
 from django.contrib import messages
 from django.urls import reverse
-from .forms import LoginForm, RegisterForm
+from autores.forms import LoginForm, RegisterForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
 from portfolio.models import Photos
-from autores.forms.photo_form import AuthorsPhotoForm
 
 def register_view(request):
     register_form_data = request.session.get('register_form_data', None)
@@ -87,7 +86,7 @@ def dashboard(request):
     return render(request, 'pages/dashboard.html', context={
         'photos': my_photos,
     })
-
+'''
 @login_required(login_url='autores:login', redirect_field_name='next')
 def dashboard_photo_edit(request, id):
     my_photo = Photos.objects.filter(
@@ -162,3 +161,4 @@ def dashboard_photo_delete(request):
     messages.success(request, 'Seu trabalho foi excluído com sucesso!!!')
 
     return redirect(reverse('autores:dashboard'))
+'''
