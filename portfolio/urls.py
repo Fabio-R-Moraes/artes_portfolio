@@ -6,10 +6,12 @@ from . import views
 app_name = 'portfolio'
 
 urlpatterns = [
-    path('', views.home, name='photos-home'),
-    path('category/<int:category_id>/', views.category, name='category'),
-    path('photo/<int:id>/', views.photo, name='photos-photo'),
-    path('photo/search/', views.search, name='search'),
+    path('', views.PhotosListViewHome.as_view(), name='photos-home'),
+    path('category/<int:category_id>/', views.PhotoListViewCategory.as_view(), name='category'),
+    path('photo/<int:pk>/', views.PhotoDetail.as_view(), name='photos-photo'),
+    path('photo/search/', views.PhotosListViewSearch.as_view(), name='search'),
+    path('trabalhos/API/v1/', views.PhotosListViewHomeAPI.as_view(), name='trabalhos_api_v1'),
+    path('trabalhos/API/v1/<int:pk>/', views.PhotoDetailAPI.as_view(), name='trabalho_api_v1_detalhe'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
