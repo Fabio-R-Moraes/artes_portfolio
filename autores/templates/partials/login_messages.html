@@ -3,11 +3,7 @@
         Você está logado com {{ request.user.username}}. 
         <a href="{% url 'autores:dashboard' %}">Veja seus trabalhos</a>, 
         <a href="{% url 'autores:dashboard_photo_new' %}">Crie um novo trabalho</a>  ou, 
-        <form class="inline-form" action="{% url 'autores:logout' %}" method="post">
-            {% csrf_token %}
-            <input type="hidden" name="username" value="{{ request.user.username }}">
-            <button class="plaintext-button" type="submit">clique aqui</button>
-        </form>
-        para deslogar!
+        {% include 'partials/form_logout.html' %}
+        <a class="autores-logout-link" href="#">Clique Aqui</a> para deslogar!
     </div>
 {% endif %}

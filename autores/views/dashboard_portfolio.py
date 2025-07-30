@@ -16,8 +16,6 @@ class DashboardPhotos(View):
     def get_photo(self, id=None):
         my_photo = None
 
-        print(f'ID: {id}')
-
         if id is not None:
             my_photo = Photos.objects.filter(
                 esta_publicado = False,

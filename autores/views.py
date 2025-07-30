@@ -69,6 +69,7 @@ def login_create(request):
 
 @login_required(login_url='autores:login', redirect_field_name='next')
 def logout_view(request):
+    print('Estou no lugar certo...')
     if not request.POST:
         return redirect(reverse('autores:login'))
     
