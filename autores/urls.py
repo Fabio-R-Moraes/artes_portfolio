@@ -22,4 +22,5 @@ urlpatterns = [
         'dashboard/photo/delete/', 
         views.DashboardPhotosDelete.as_view(), 
         name='dashboard_photo_delete'),
+    path('profile/<int:id>/', views.ProfileView.as_view(), name='profile'),
 ]

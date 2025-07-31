@@ -27,6 +27,7 @@ class Photos(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True,
     )
+    #tags = models.ManyToManyField(Tag, blank=True, default='')
 
     def __str__(self):
         return self.titulo

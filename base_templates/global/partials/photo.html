@@ -13,10 +13,16 @@
                     <span class="photo-author-item">
                         <i class="fas fa-user"></i>
                         {% if photo.author is not None %}
+                            {% if photo.author.profile %}
+                                <a href="{% url 'autores:profile' photo.author.profile.id %}">
+                            {% endif %}
                             {% if photo.author.first_name %}
                                 {{ photo.author.first_name }} {{ photo.author.last_name }}
                             {% else %}
                                 {{ photo.author.username }}
+                            {% endif %}
+                            {% if photo.author.profile %}
+                                </a>
                             {% endif %}
                         {% else %}
                             Desconhecido
