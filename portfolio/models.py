@@ -2,7 +2,26 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.urls import reverse
 from django.utils.text import slugify
+from django.db.models import F, Value
+from django.db.models.functions import Concat
+from django.forms import ValidationError
+from collections import defaultdict
 
+class PhotosManager(models.Manager):
+    def get_publicados(self):
+        return self.filter(
+            esta_publicado = True,
+        ).annotate(
+            author_name_complete = Concat(
+                F('author__first_name'),
+                Value(''),
+                F('author__last_name'),
+                Value('('),
+                F('author__username'),
+                Value(')')
+            )
+        ).order_by('-id')
+    
 class Category(models.Model):
     nome =  models.CharField('Categoria', max_length=65)
 
@@ -10,6 +29,7 @@ class Category(models.Model):
         return self.nome
 
 class Photos(models.Model):
+    objects = PhotosManager()
     titulo = models.CharField('Título', max_length=65)
     descricao = models.CharField('Descrição', max_length=165)
     slug = models.SlugField(unique=True)
@@ -27,7 +47,6 @@ class Photos(models.Model):
     author = models.ForeignKey(
         User, on_delete=models.SET_NULL, null=True,
     )
-    #tags = models.ManyToManyField(Tag, blank=True, default='')
 
     def __str__(self):
         return self.titulo
@@ -41,3 +60,18 @@ class Photos(models.Model):
             self.slug = slug
 
         return super().save(*args, **kwargs)
+    
+    def clean(self, *args, **kwargs):
+        error_message = defaultdict(list)
+        DB_photos = Photos.objects.filter(
+            titulo__iexact = self.titulo
+        ). first()
+
+        if DB_photos:
+            if DB_photos.pk != self.pk:
+                error_message['titulo'].append(
+                    'Esse título já está sendo usado!!!'
+                )
+
+            if error_message:
+                raise ValidationError(error_message)

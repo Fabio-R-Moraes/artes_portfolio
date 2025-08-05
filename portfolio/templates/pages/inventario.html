@@ -1,0 +1,15 @@
+{% extends 'global/base.html' %}
+{% block title %}Inventário | {% endblock %}
+{% block conteudo %}
+    <div class="main-content container">
+        <h1>Inventário</h1>
+        <h2>No site existem {{ total_photos }} trabalhos publicados!!!</h2>
+        <ul>
+            {% for photo in photos %}
+                <li>{{photo.titulo}} criado em {{photo.criado_em}}: {{photo.author.first_name}} {{photo.author.last_name}} {{ photo.author_name_complete }}</li>
+            {% empty %}
+                <p>O inventário está vazio...</p>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

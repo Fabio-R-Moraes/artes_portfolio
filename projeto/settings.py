@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 from pathlib import Path
 import os
 from django.contrib.messages import constants
+from utils.enviroment import get_env_variable, parse_comma_str_to_list
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +28,8 @@ SECRET_KEY = os.environ.get('APP_SECRET_KEY','INSECURE')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True if os.environ.get('APP_DEBUG') == 'S' else False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS:list[str] = parse_comma_str_to_list(get_env_variable('ALLOWED_HOSTS'))
+CSRF_TRUSTED_ORIGINS:list[str] = parse_comma_str_to_list(get_env_variable('CSRF_TRUSTED_ORIGINS'))
 
 
 # Application definition

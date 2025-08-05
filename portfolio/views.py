@@ -6,6 +6,9 @@ import os
 from django.views.generic import ListView, DetailView
 from django.http import JsonResponse
 from django.forms.models import model_to_dict
+from django.shortcuts import render
+from django.core.exceptions import ObjectDoesNotExist
+from django.db.models.aggregates import Count
 
 PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',9)
 
@@ -125,3 +128,19 @@ class PhotoDetailAPI(PhotoDetail):
             photo_dictionary, 
             safe=False,
         )
+
+def inventario(request, *args, **kwargs):
+    photos = Photos.objects.all()
+
+    try:
+        photos = Photos.objects.get_publicados()
+        photos = photos.select_related('author')
+        numero_photos = photos.aggregate(total=Count('id'))
+    except ObjectDoesNotExist:
+        photos = None
+
+    contexto = {
+        'photos': photos,
+        'total_photos': numero_photos['total'],
+    }
+    return render(request, 'pages/inventario.html', context=contexto)
