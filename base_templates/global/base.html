@@ -1,9 +1,10 @@
 {% load static %}
+{% load i18n %}
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="{{ html_language }}">
 <head>
     {% include 'global/partials/head.html' %}
-    <title>{% block title %}{% endblock %}Portfólio</title>
+    <title>{% block title %}{% endblock %}{% translate 'Portfolio' %}</title>
 </head>
 <body>
     {% include 'global/partials/menu.html' %}

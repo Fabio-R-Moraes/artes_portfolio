@@ -9,6 +9,7 @@ from django.forms.models import model_to_dict
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.aggregates import Count
+from django.utils import translation
 
 PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',9)
 
@@ -30,9 +31,11 @@ class PhotosListViewBase(ListView):
     def get_context_data(self, *args, **kwargs):
         contexto = super().get_context_data(*args, **kwargs)
         pagina_objeto, range_paginacao = make_pagination(self.request, contexto.get('photos'), PER_PAGE)
+        html_language = translation.get_language()
         contexto.update({
             'photos': pagina_objeto,
             'range_paginacao': range_paginacao,
+            'html_language': html_language,
         })
         return contexto
 
@@ -89,7 +92,7 @@ class PhotosListViewSearch(PhotosListViewBase):
         contexto = super().get_context_data(*args, **kwargs)
         search_term = self.request.GET.get('q','').strip()
         contexto.update({
-            'page_title': f' Pesquisando por "{search_term}" |',
+            'page_title': f' Procurando por "{search_term}" |',
             'search_term': search_term,
             'aditional_url_query':f'&q={search_term}',
         })

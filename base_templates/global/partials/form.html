@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="main-content container">
         <form class="main-form" action="{{ form_action }}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
@@ -24,14 +25,14 @@
                 <div class="form-content form-content-grid">
                     <div class="form-group">
                         <div class="message message-error">
-                            Por favor, corrija os erros no formulário!!!
+                            {% translate 'Please, fix the errors in the form' %}!!!
                         </div>
                     </div>
                 </div>
             {% endif %}
             <div class="form-content form-content-grid">
                 <div class="form-group">
-                    <button type="submit">Enviar</button>
+                    <button type="submit">{% translate 'Send' %}</button>
                 </div>
             </div>
         </form>

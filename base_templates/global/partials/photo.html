@@ -1,3 +1,4 @@
+{% load i18n %}
 <div class="photo photo-list-item">
                 <div class="photo-cover">
                     <a href="{{ portfolio.get_absolute_url }}">
@@ -25,7 +26,7 @@
                                 </a>
                             {% endif %}
                         {% else %}
-                            Desconhecido
+                            {% translate 'Unknown' %}
                         {% endif %}
                     </span>
                     {% if photo.category is not None %}
@@ -53,15 +54,15 @@
                 </div>
                 <div class="photo-meta-container">
                     <div class="photo-meta photo-preparation">
-                        <h3 class="photo-meta-title"><i class="fa-solid fa-paper-plane"></i></i>Entrega</h3>
+                        <h3 class="photo-meta-title"><i class="fa-solid fa-paper-plane"></i></i>{% translate 'Delivering' %}</h3>
                         <div class="photo-meta-text">
-                            Entrega em todo Brasil
+                            {% translate 'Delivery throughout Brazil' %}
                         </div>
                     </div>
                     <div class="photo-meta photo-cart">
-                        <h3 class="photo-meta-title"><i class="fa-solid fa-cart-plus"></i></i>Carrinho</h3>
+                        <h3 class="photo-meta-title"><i class="fa-solid fa-cart-plus"></i></i>{% translate 'Shopping cart' %}</h3>
                         <div class="photo-meta-text">
-                            Adicione no carrinho
+                            {% translate 'Add in cart' %}
                         </div>
                     </div>
                 </div>
@@ -69,7 +70,7 @@
                     <footer class="photo-footer">
                         <a class="photo-read-more button button-dark button-full-width" href="{% url 'portfolio:photos-photo' photo.id %}">
                             <i class="fas fa-eye"></i>
-                            <span>Ver mais...</span>
+                            <span>{% translate 'Read more' %}...</span>
                         </a>
                     </footer>
                 {% endif %}
