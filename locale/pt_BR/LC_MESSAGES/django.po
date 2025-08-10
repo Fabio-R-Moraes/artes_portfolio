@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-08 22:33-0300\n"
+"POT-Creation-Date: 2025-08-10 20:11-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,6 +17,52 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: autores/forms/photo_form.py:22
+msgid "Title"
+msgstr "Título"
+
+#: autores/forms/photo_form.py:23
+msgid "Description"
+msgstr "Descrição"
+
+#: autores/forms/photo_form.py:24 portfolio/models.py:33 portfolio/views.py:63
+msgid "Category"
+msgstr "Categoria"
+
+#: autores/forms/photo_form.py:25
+msgid "Value"
+msgstr "Preço"
+
+#: autores/forms/photo_form.py:26
+msgid "History"
+msgstr "História"
+
+#: autores/forms/photo_form.py:27 portfolio/models.py:85
+msgid "Work"
+msgstr "Trabalho"
+
+#: autores/forms/register_forms.py:13
+msgid "Repeat your password"
+msgstr "Repita a sua senha"
+
+#: autores/forms/register_forms.py:34
+msgid "First Name"
+msgstr "Nome"
+
+#: autores/forms/register_forms.py:35
+msgid "Last Name"
+msgstr "Sobrenome"
+
+#: autores/models.py:12 autores/templates/pages/profile.html:3
+msgid "Profile"
+msgstr "Perfil"
+
+#: autores/models.py:13
+#, fuzzy
+#| msgid "Profile"
+msgid "Profiles"
+msgstr "Perfis"
 
 #: autores/templates/pages/dashboard.html:9
 #, fuzzy
@@ -35,10 +81,6 @@ msgstr "Você não tem trabalhos... crie um"
 msgid "Works Dashboard"
 msgstr "Seu dashboard"
 
-#: autores/templates/pages/profile.html:3
-msgid "Profile"
-msgstr "Perfil"
-
 #: autores/templates/pages/register_view.html:3
 #: base_templates/global/partials/menu.html:23
 msgid "Register"
@@ -47,6 +89,10 @@ msgstr "Cadastre-se"
 #: autores/templates/pages/register_view.html:6
 msgid "Register form"
 msgstr "Formulário de Registro"
+
+#: autores/templates/partials/login_messages.html:4
+msgid "You are logged with"
+msgstr "Você está logado com"
 
 #: autores/templates/partials/login_messages.html:5
 msgid "See your works"
@@ -126,6 +172,26 @@ msgstr "Adicione ao carrinho"
 msgid "Read more"
 msgstr "Ver mais"
 
+#: portfolio/models.py:34
+#, fuzzy
+#| msgid "Category"
+msgid "Categories"
+msgstr "Categorias"
+
+#: portfolio/models.py:50
+#, fuzzy
+#| msgid "Category"
+msgid "Categoria"
+msgstr "Categoria"
+
+#: portfolio/models.py:53
+msgid "Autor"
+msgstr ""
+
+#: portfolio/models.py:86
+msgid "Works"
+msgstr "Trabalhos"
+
 #: portfolio/templates/pages/home.html:10
 #: portfolio/templates/pages/search.html:10
 msgid "There no works to be shown"
@@ -146,3 +212,6 @@ msgstr "criado em"
 #: portfolio/templates/pages/inventario.html:12
 msgid "The inventory is empty"
 msgstr "O inventário está vazio"
+
+#~ msgid "Author"
+#~ msgstr "Autor"

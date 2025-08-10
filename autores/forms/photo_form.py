@@ -4,6 +4,7 @@ from utils.django_forms import novos_atributos
 from utils.strings import is_a_positicve_number
 from django.core.exceptions import ValidationError
 from collections import defaultdict
+from django.utils.translation import gettext_lazy as _
 
 class AuthorsPhotoForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -16,6 +17,15 @@ class AuthorsPhotoForm(forms.ModelForm):
     class Meta:
         model = Photos
         fields = 'titulo', 'descricao', 'category', 'preco', 'historia', 'photo_image'
+
+        labels = {
+            'titulo': _('Title'),
+            'descricao': _('Description'),
+            'category': _('Category'),
+            'preco': _('Value'),
+            'historia': _('History'),
+            'photo_image': _('Work'),
+        }
 
         widgets = {
             'photo_image': forms.FileInput(
@@ -54,6 +64,6 @@ class AuthorsPhotoForm(forms.ModelForm):
             field_value = self.cleaned_data.get(field_name)
 
             if not is_a_positicve_number(field_value):
-                self.my_errors[field_name].append('O preço pfecisa ser positivo... por favor!!!')
+                self.my_errors[field_name].append('O preço precisa ser positivo... por favor!!!')
 
             return field_value

@@ -2,6 +2,7 @@ from django import forms
 from django.contrib.auth.models import User
 from django.core.exceptions import ValidationError
 from utils.django_forms import senhaForte
+from django.utils.translation import gettext_lazy as _
 
 class RegisterForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
@@ -9,7 +10,7 @@ class RegisterForm(forms.ModelForm):
 
     password2 = forms.CharField(
         required=True,
-        label= 'Repita sua Senha',
+        label= _('Repeat your password'),
         error_messages={
             'required': 'A senha não pode ser vazia...',
         },
@@ -30,8 +31,8 @@ class RegisterForm(forms.ModelForm):
         ]
 
         labels = {
-            'first_name': 'Nome',
-            'last_name': 'Sobrenome',
+            'first_name': _('First Name'),
+            'last_name': _('Last Name'),
         }
 
         help_texts = {

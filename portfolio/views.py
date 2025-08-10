@@ -10,6 +10,7 @@ from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.aggregates import Count
 from django.utils import translation
+from django.utils.translation import gettext as _
 
 PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',9)
 
@@ -56,6 +57,15 @@ class PhotosListViewHomeAPI(PhotosListViewBase):
 
 class PhotoListViewCategory(PhotosListViewBase):
     template_name = 'pages/category.html'
+
+    def get_context_data(self, *args, **kwargs):
+        contexto = super().get_context_data(*args, **kwargs)
+        category_translation = _('Category')
+        contexto.update({
+            'title': f'{category_translation}: {contexto.get("photos")[0].category.nome} | '
+        })
+
+        return contexto
 
     def get_queryset(self, *args, **kwargs):
         consulta = super().get_queryset(*args, **kwargs)

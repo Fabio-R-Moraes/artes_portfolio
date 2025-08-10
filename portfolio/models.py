@@ -6,6 +6,7 @@ from django.db.models import F, Value
 from django.db.models.functions import Concat
 from django.forms import ValidationError
 from collections import defaultdict
+from django.utils.translation import gettext_lazy as _
 
 class PhotosManager(models.Manager):
     def get_publicados(self):
@@ -27,6 +28,10 @@ class Category(models.Model):
 
     def __str__(self):
         return self.nome
+    
+    class Meta:
+        verbose_name = _('Category')
+        verbose_name_plural = _('Categories')
 
 class Photos(models.Model):
     objects = PhotosManager()
@@ -41,11 +46,11 @@ class Photos(models.Model):
     esta_publicado = models.BooleanField(default=False)
     photo_image = models.ImageField('Trabalho', upload_to='portfolio/portfolio_image/%d/%m/%Y/',
                                     blank=True, default='')
-    category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True, blank=True, default=None
+    category = models.ForeignKey( 
+        Category, on_delete=models.SET_NULL, null=True, blank=True, default=None, verbose_name=_('Categoria'),
     )
     author = models.ForeignKey(
-        User, on_delete=models.SET_NULL, null=True,
+        User, on_delete=models.SET_NULL, null=True, verbose_name=_('Autor'),
     )
 
     def __str__(self):
@@ -75,3 +80,7 @@ class Photos(models.Model):
 
             if error_message:
                 raise ValidationError(error_message)
+            
+    class Meta:
+        verbose_name = _('Work')
+        verbose_name_plural = _('Works')
