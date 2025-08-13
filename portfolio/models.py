@@ -7,6 +7,9 @@ from django.db.models.functions import Concat
 from django.forms import ValidationError
 from collections import defaultdict
 from django.utils.translation import gettext_lazy as _
+import os
+from django.conf import settings
+from PIL import Image
 
 class PhotosManager(models.Manager):
     def get_publicados(self):
@@ -59,12 +62,40 @@ class Photos(models.Model):
     def get_absolute_url(self):
         return reverse('portfolio:photos-photo', args=(self.id,))
     
+    @staticmethod
+    def resize_image(image, new_width=500):
+        image_path_complete = os.path.join(settings.MEDIA_ROOT, image.name)
+        image_Pillow = Image.open(image_path_complete)
+        original_width, original_heigth = image_Pillow.size
+
+        if original_width <= new_width:
+            image_Pillow.close()
+            return
+        
+        new_heigth = round((new_width * original_heigth) / original_width)
+        #print('Altura:', new_heigth)
+        #print('Largura:', new_width)
+        new_image = image_Pillow.resize((new_width, new_heigth), Image.LANCZOS)
+        new_image.save(
+            image_path_complete,
+            optimize = True,
+            quality = 70,
+        )
+    
     def save(self, *args, **kwargs):
         if not self.slug:
             slug = f'{slugify(self.titulo)}'
             self.slug = slug
 
-        return super().save(*args, **kwargs)
+        salvo = super().save(*args, **kwargs)
+
+        if self.photo_image:
+            try:
+                self.resize_image(self.photo_image, 500)
+            except FileNotFoundError:
+                ...
+
+        return salvo
     
     def clean(self, *args, **kwargs):
         error_message = defaultdict(list)
