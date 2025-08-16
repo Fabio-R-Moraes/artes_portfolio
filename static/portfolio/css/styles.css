@@ -5,8 +5,6 @@
     --color-primary-dark-hover: #212336;
     --color-primary-light: #d4ecfa;
     --color-primary-light-hover: #bdd8e7;
-
-    --color-primary-btn: #65DAF9;
     
     --color-white: #fff;
     --color-black: #000;
@@ -42,82 +40,35 @@
     
     --spacing-gutter-medium: 3rem;
     --spacing-gutter-large: 4rem;
-    --spacing-gutter-small: 0.5rem;
 }
-
 * {
     padding: 0;
     margin:0;
     box-sizing: border-box;
 }
-
 html {
     font-size: 62.5%;
 }
-
 body {
     font-size: 1.6rem;
     font-family: var(--font-primary);
     background-color: var(--color-gray-1);
     color: var(--color-dark-text);
 }
-
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-headings);
 }
-
 img {
     max-width: 100%;
 }
-
 a {
     color: var(--color-primary);
     text-decoration: none;
 }
-
-.container-fluid {
-    padding: 0;
-}
-
-#carouselCaptions .carousel-inner, #carouselCaptions .carousel-indicators {
-    height: 80vh
-}
-
-#carouselCaptions .carousel-caption {
-    top: 30%;
-}
-
-#carouselCaptions .carousel-indicators {
-    top: 60%;
-}
-
-.slide-btn {
-    background-color: var(--color-primary-btn);
-    color: var(--color-white);
-    text-transform: uppercase;
-    width: 20rem;
-    height: 60rem;
-    padding: 1rem 2rem;
-    border-radius: 3rem;
-    border: 3px solid transparent;
-    transition: .5s;
-}
-
-.slide-btn:hover {
-    text-decoration: none;
-    color: var(--color-white);
-    background-color: transparent;
-    border-color: var(--color-primary-btn);
-}
-
-.carousel-indicators .active {
-    background-color: var(--color-primary-btn);
-}
-
 .container {
     max-width: 144rem;
     margin: 0 auto;
-    padding: var(--spacing-gutter-small) 0;
+    padding: var(--spacing-gutter-medium);
 }
 .main-header-container {
     background: var(--color-primary-dark);
@@ -444,8 +395,8 @@ a {
     text-align: center;
 }
 
-.right {
-    text-align: right;
+.left {
+    text-align: left;
 }
 
 .hidden-text {
@@ -455,7 +406,7 @@ a {
 .menu-container {
     position:fixed;
     top: 0;
-    right: 0;
+    left: 0;
     bottom: 0;
     width: 260px;
     min-height: 100vh;
@@ -470,12 +421,12 @@ a {
 }
 
 .menu-hidden {
-    right: -255px;
+    left: -255px;
 }
 
 .button-show-menu {
     position: fixed;
-    right: -265px;
+    left: 265px;
     top: 2rem;
     color: var(--color-white);
     background-color: var(--color-primary);
@@ -493,7 +444,7 @@ a {
 .button-show-menu-visible {
     visibility: visible;
     opacity: 1;
-    right: 5px;
+    left: 5px;
 }
 
 .button-close-menu {
