@@ -12,7 +12,7 @@ from django.db.models.aggregates import Count
 from django.utils import translation
 from django.utils.translation import gettext as _
 
-PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',9)
+PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',7)
 
 class PhotosListViewBase(ListView):
     model = Photos
