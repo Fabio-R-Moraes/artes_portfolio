@@ -10,7 +10,8 @@
     </button>
     <div class="menu-content">
         <nav class="menu-nav">
-            <a href="{% url 'portfolio:photos-home' %}">Home</a>
+            <a class="nav-item nav-link" id="home-menu" href="{% url 'portfolio:photos-home' %}">Home</a>
+            <a class="nav-item nav-link" id="about-menu">Sobre</a>
 
             {% if user.is_authenticated %}
                 <a href="{% url 'autores:dashboard_photo_new' %}">{% translate 'New work' %}</a>

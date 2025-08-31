@@ -10,6 +10,7 @@
     
     --color-white: #fff;
     --color-black: #000;
+    --color-other-black: #333;
     
     --color-dark-text: #444;
     --color-info-light: #cce5ff;
@@ -52,7 +53,7 @@
 }
 
 html {
-    font-size: 62.5%;
+    font-size: 75%;
 }
 
 body {
@@ -159,7 +160,7 @@ a {
 
 .slide-btn {
     background-color: var(--color-primary-btn);
-    color: var(--color-black);
+    color: var(--color-white);
     text-transform: uppercase;
     display: inline-block;
     width: 220px;
@@ -305,6 +306,52 @@ a {
 .historia ul {
     margin: 2rem;
     padding: 0 2rem;
+}
+
+/* Página sobre */
+#about-area {
+    color: var(--color-gray-0);
+}
+
+.main-title {
+    color: var(--color-dark-text);
+    margin: 0 0 65px 0;
+    font-size: 40px;
+    text-align: center;
+}
+
+.main-title::after {
+    content: "";
+    border-top: 2px solid var(--color-other-black);
+    width: 15%;
+    position: absolute;
+    top: 60px;
+    left: 42.5%;
+}
+
+.about-title {
+    font-size: 22px;
+    color: var(--color-dark-text);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.text-about {
+    font-size: 1.5rem;
+}
+
+#about-list {
+    list-style: none;
+    padding-left: 0;
+}
+
+#about-list li {
+    line-height: 30px;
+}
+
+#about-list i {
+    color: var(--color-primary-btn);
+    margin-right: 15px;
 }
 
 /*Rodapé */
