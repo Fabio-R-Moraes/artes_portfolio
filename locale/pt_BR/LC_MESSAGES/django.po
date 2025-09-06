@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-10 20:11-0300\n"
+"POT-Creation-Date: 2025-09-02 21:29-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -26,7 +26,7 @@ msgstr "Título"
 msgid "Description"
 msgstr "Descrição"
 
-#: autores/forms/photo_form.py:24 portfolio/models.py:33 portfolio/views.py:63
+#: autores/forms/photo_form.py:24 portfolio/models.py:36 portfolio/views.py:63
 msgid "Category"
 msgstr "Categoria"
 
@@ -38,7 +38,7 @@ msgstr "Preço"
 msgid "History"
 msgstr "História"
 
-#: autores/forms/photo_form.py:27 portfolio/models.py:85
+#: autores/forms/photo_form.py:27 portfolio/models.py:116
 msgid "Work"
 msgstr "Trabalho"
 
@@ -82,7 +82,7 @@ msgid "Works Dashboard"
 msgstr "Seu dashboard"
 
 #: autores/templates/pages/register_view.html:3
-#: base_templates/global/partials/menu.html:23
+#: base_templates/global/partials/menu.html:24
 msgid "Register"
 msgstr "Cadastre-se"
 
@@ -114,6 +114,76 @@ msgstr " para deslogar"
 msgid "Portfolio"
 msgstr "Portfólio"
 
+#: base_templates/global/partials/about.html:7
+msgid "About Mariana"
+msgstr "Sobre a Mariana"
+
+#: base_templates/global/partials/about.html:14
+msgid "Some informations"
+msgstr "Algumas informações"
+
+#: base_templates/global/partials/about.html:15
+msgid ""
+"I'm a digital and traditional illustrator, i do digital drawing commissions "
+"of"
+msgstr "Sou ilustradora digital e tradicional, faço comissões de"
+
+#: base_templates/global/partials/about.html:16
+msgid "and i'm currently studying visual design at Positivo University"
+msgstr "desenho digital e no momento estou cursando design visual"
+
+#: base_templates/global/partials/about.html:17
+msgid "I've been taking traditional drawing classes"
+msgstr "na Universidade Positivo. Faço aulas de desenho tradicional"
+
+#: base_templates/global/partials/about.html:18
+msgid "for three years."
+msgstr "a três anos."
+
+#: base_templates/global/partials/about.html:19
+msgid "I'm interested in art and design and am always"
+msgstr "Tenho interesse em áreas da arte e do design e estou sempre"
+
+#: base_templates/global/partials/about.html:20
+msgid "open to new experiences and learning. I work well"
+msgstr "aberta a novas experiências e aprendizados. Trabalho bem em"
+
+#: base_templates/global/partials/about.html:21
+msgid "in a team, am organized and creative in a constant pursuit"
+msgstr "equipe, sou organizada e criativa em uma busca constante"
+
+#: base_templates/global/partials/about.html:22
+msgid "of knowledge. I'm passionate about inspiring people of"
+msgstr "pelo conhecimento. Apaixonada por inspirar pessoas com a"
+
+#: base_templates/global/partials/about.html:23
+msgid "my art."
+msgstr "minha arte."
+
+#: base_templates/global/partials/about.html:24
+msgid "Some Visual Arts skills"
+msgstr "Algumas habilidades em Artes Visuais"
+
+#: base_templates/global/partials/about.html:26
+msgid "Fundamental Elements of Visual Language"
+msgstr "Elementos fundamentais da linguagem visual"
+
+#: base_templates/global/partials/about.html:27
+msgid "Artistic Techniques and Expressions"
+msgstr "Técnicas e expressões artísticas"
+
+#: base_templates/global/partials/about.html:28
+msgid "Creative and Congnitive Skills"
+msgstr "Habilidades criativas e cognitivas"
+
+#: base_templates/global/partials/about.html:29
+msgid "Knowledge of Artistic System"
+msgstr "Conhecimento do sistema artístico"
+
+#: base_templates/global/partials/about.html:30
+msgid "Analysis and Contextualization"
+msgstr "Análise e Contextualização"
+
 #: base_templates/global/partials/form.html:28
 msgid "Please, fix the errors in the form"
 msgstr "Por favor, corrija os erros no formulário"
@@ -134,15 +204,15 @@ msgstr "Mostrar menu"
 msgid "Close menu"
 msgstr "Fechar menu"
 
-#: base_templates/global/partials/menu.html:16
+#: base_templates/global/partials/menu.html:17
 msgid "New work"
 msgstr "Novo trabalho"
 
-#: base_templates/global/partials/menu.html:17
+#: base_templates/global/partials/menu.html:18
 msgid "Your dashboard"
 msgstr "Seu dashboard"
 
-#: base_templates/global/partials/menu.html:18
+#: base_templates/global/partials/menu.html:19
 #: portfolio/templates/pages/inventario.html:3
 #: portfolio/templates/pages/inventario.html:6
 msgid "Inventory"
@@ -172,27 +242,27 @@ msgstr "Adicione ao carrinho"
 msgid "Read more"
 msgstr "Ver mais"
 
-#: portfolio/models.py:34
+#: portfolio/models.py:37
 #, fuzzy
 #| msgid "Category"
 msgid "Categories"
 msgstr "Categorias"
 
-#: portfolio/models.py:50
+#: portfolio/models.py:53
 #, fuzzy
 #| msgid "Category"
 msgid "Categoria"
 msgstr "Categoria"
 
-#: portfolio/models.py:53
+#: portfolio/models.py:56
 msgid "Autor"
 msgstr ""
 
-#: portfolio/models.py:86
+#: portfolio/models.py:117
 msgid "Works"
 msgstr "Trabalhos"
 
-#: portfolio/templates/pages/home.html:10
+#: portfolio/templates/pages/home.html:12
 #: portfolio/templates/pages/search.html:10
 msgid "There no works to be shown"
 msgstr "Não há trabalhos para serem mostrados"

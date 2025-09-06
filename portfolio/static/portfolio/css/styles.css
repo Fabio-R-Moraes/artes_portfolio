@@ -354,6 +354,23 @@ a {
     margin-right: 15px;
 }
 
+/* Página Skills */
+.circle-box div {
+    0 40px;
+}
+
+.progressbar-text {
+    font-weight: bold;
+    font-size: 32px;
+}
+
+#skills_area p {
+    color: var(--color-white);
+    text-align: center;
+    font-size: 26px;
+    margin-top: 20px;
+}
+
 /*Rodapé */
 .main-footer {
     display: flex;
