@@ -371,6 +371,31 @@ a {
     margin-top: 20px;
 }
 
+/* Página Curriculum Vitae */
+.cv-box {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.cv-box i, .cv-box h4 {
+    transition: .5s;
+} 
+
+.cv-box i {
+    font-size: 25px;
+    margin-bottom: 15px;
+    color: var(--color-dark-text);
+}
+
+.cv-box h4 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.cv-box:hover > i, .cv-box > h4 {
+    color: var(--color-primary-btn);
+}
+
 /*Rodapé */
 .main-footer {
     display: flex;

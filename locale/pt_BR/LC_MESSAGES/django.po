@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-02 21:29-0300\n"
+"POT-Creation-Date: 2025-09-16 21:35-0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -183,6 +183,106 @@ msgstr "Conhecimento do sistema artístico"
 #: base_templates/global/partials/about.html:30
 msgid "Analysis and Contextualization"
 msgstr "Análise e Contextualização"
+
+#: base_templates/global/partials/curriculum_vitae.html:17
+msgid "About"
+msgstr "Sobre"
+
+#: base_templates/global/partials/curriculum_vitae.html:18
+msgid "I'm 18 years old and I do traditional and digital"
+msgstr "Tenho 18 anos, faço ilustração e desenho tradicional e"
+
+#: base_templates/global/partials/curriculum_vitae.html:19
+msgid "illustration and drawing. I'm interested in art and"
+msgstr "digital. Tenho interesse em àreas de arte e design e"
+
+#: base_templates/global/partials/curriculum_vitae.html:20
+msgid "design and I'm open to new experiences and learning."
+msgstr "estou aberta a novas experiências e aprendizado."
+
+#: base_templates/global/partials/curriculum_vitae.html:21
+msgid "I work well in a team, I'm organized and creative,"
+msgstr "equipe, sou organizada e criativa em uma busca constante"
+
+#: base_templates/global/partials/curriculum_vitae.html:22
+msgid "and I'm constantly seeking knowledge."
+msgstr "pelo conhecimento."
+
+#: base_templates/global/partials/curriculum_vitae.html:26
+msgid "Technical Skills"
+msgstr "Competências Técnicas"
+
+#: base_templates/global/partials/curriculum_vitae.html:28
+msgid "Image Editing (Photoshop)"
+msgstr "Edição de imagem (Photoshop)"
+
+#: base_templates/global/partials/curriculum_vitae.html:29
+msgid "Illustration Software (Illustrator, Krita)"
+msgstr "Software de ilustração (Illustrator, Krita)"
+
+#: base_templates/global/partials/curriculum_vitae.html:30
+msgid "Traditional Illustration"
+msgstr "Ilustração tradicional"
+
+#: base_templates/global/partials/curriculum_vitae.html:31
+msgid "English Level B2 (TOEIC Certification)"
+msgstr "Inglês nível B2 (Certificação TOEIC)"
+
+#: base_templates/global/partials/curriculum_vitae.html:32
+msgid "Web Design"
+msgstr "Web Design"
+
+#: base_templates/global/partials/curriculum_vitae.html:33
+msgid "Basic Knowledge of HTML and CSS"
+msgstr "Noções básicas de HTML e CSS"
+
+#: base_templates/global/partials/curriculum_vitae.html:38
+msgid "Professional Background"
+msgstr "Percurso Profissional"
+
+#: base_templates/global/partials/curriculum_vitae.html:39
+msgid "Freelance Illustrator - Since February 2024"
+msgstr "Ilustrador freelance - desde fevereiro 2024"
+
+#: base_templates/global/partials/curriculum_vitae.html:41
+msgid "Application of Color Theory"
+msgstr "Aplicação da teoria das cores"
+
+#: base_templates/global/partials/curriculum_vitae.html:42
+msgid "Lighting Techniques in Drawings and Illustrations"
+msgstr "Técnicas de iluminação em desenhos e ilustrações"
+
+#: base_templates/global/partials/curriculum_vitae.html:43
+msgid "2D Character Design"
+msgstr "Design de personagem 2D"
+
+#: base_templates/global/partials/curriculum_vitae.html:44
+msgid "Realistic Portrait Illustration"
+msgstr "Ilustração em retrato realista"
+
+#: base_templates/global/partials/curriculum_vitae.html:49
+msgid "Academic Background"
+msgstr "Background Acadêmico"
+
+#: base_templates/global/partials/curriculum_vitae.html:50
+msgid "POSITIVO UNIVERSITY"
+msgstr "UNIVERSIDADE POSITIVO"
+
+#: base_templates/global/partials/curriculum_vitae.html:51
+msgid "2025 - Curitiba/PR - Brazil: In progress"
+msgstr "2025 - Curitiba/PR - Brasil: Em andamento"
+
+#: base_templates/global/partials/curriculum_vitae.html:52
+msgid "Bachelor's Degree - Visual Design"
+msgstr "Bacharel - Design Visual"
+
+#: base_templates/global/partials/curriculum_vitae.html:54
+msgid "SESI INDUSTRY COLLEGE"
+msgstr "COLÉGIO SESI DA INDÚSTRIA"
+
+#: base_templates/global/partials/curriculum_vitae.html:55
+msgid "2022 to 2024 - Curitiba/PR - Brazil"
+msgstr "2022 a 2024 - Curitiba/PR - Brasil"
 
 #: base_templates/global/partials/form.html:28
 msgid "Please, fix the errors in the form"
