@@ -11,6 +11,9 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.db.models.aggregates import Count
 from django.utils import translation
 from django.utils.translation import gettext as _
+from .forms import contatoForm
+from django.contrib import messages
+#from django.core.mail import EmailMessage
 
 PER_PAGE = os.environ.get('PHOTOS_PER_PAGE',7)
 
@@ -157,3 +160,39 @@ def inventario(request, *args, **kwargs):
         'total_photos': numero_photos['total'],
     }
     return render(request, 'pages/inventario.html', context=contexto)
+
+def contact_mail(request):
+    form = contatoForm(request.POST or None)
+
+    if str(request.method) == 'POST':
+        if form.is_valid():
+            nome = form.cleaned_data['name']
+            email = form.cleaned_data['email']
+            assunto = form.cleaned_data['subject']
+            mensagem = form.cleaned_data['message']
+
+            print('MENSAGEM ENVIADA COM SUCESSO!!!')
+            print(f'Nome: {nome}')
+            print(f'e-mail: {email}')
+            print(f'Assunto: {assunto}')
+            print(f'Mensage: {mensagem}')
+
+            messages.success(request, 'E-mail enviado com sucesso!!!')
+
+            #Configuração para enviar e-mail em produção
+            #mail = EmailMessage(
+            #    subject = assunto,
+            #    body = nome + '\n' + email + '\n\n' + mensagem,
+            #    from_email= 'no-reply@mail.com',
+            #    to = ['fmoraes05@gmail.com', 'fmoraes05@outlook.com'],
+            #)
+            #mail.send()
+
+            form = contatoForm()
+        else:
+            messages.error(request, 'Erro ao enviar a mensagem...')
+            
+    context = {
+        'form': form,
+    }
+    return render(request, 'global/partials/contact.html', context)

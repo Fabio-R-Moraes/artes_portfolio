@@ -13,6 +13,7 @@ urlpatterns = [
     path('trabalhos/API/v1/', views.PhotosListViewHomeAPI.as_view(), name='trabalhos_api_v1'),
     path('trabalhos/API/v1/<int:pk>/', views.PhotoDetailAPI.as_view(), name='trabalho_api_v1_detalhe'),
     path('photos/inventario/', views.inventario, name='inventario'),
+    path('photos/contact.html', views.contact_mail, name="contact_mail"),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
