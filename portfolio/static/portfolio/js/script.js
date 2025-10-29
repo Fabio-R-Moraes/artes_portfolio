@@ -20,6 +20,8 @@
     const buttonShowMenuVisibleClass = 'button-show-menu-visible';
     const menuHiddenClass = 'menu-hidden';
 
+    console.log('Viviane do cuzão arrombado.... Sopa de porra!!!!');
+
     const closeMenu = () => {
         buttonShowMenu.classList.add(buttonShowMenuVisibleClass);
         menuContainer.classList.add(menuHiddenClass);

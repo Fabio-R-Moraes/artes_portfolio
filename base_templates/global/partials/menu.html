@@ -1,31 +1,87 @@
-{% load i18n %}
-<button class="button-show-menu button-show-menu-visible">
-     <i class="fa-solid fa-bars"></i>
-     <span class="hidden-text">{% translate 'Show menu' %}</span>
-</button>
-<div class="menu-container menu-hidden">
-    <button class="button-close-menu button-close-menu-visible">
-         <i class="fa-solid fa-circle-xmark"></i>
-         <span class="hidden-text">{% translate 'Close menu' %}</span>
-    </button>
-    <div class="menu-content">
-        <nav class="menu-nav">
-            <a class="nav-item nav-link" id="home-menu" href="{% url 'portfolio:photos-home' %}">Home</a>
-            <a class="nav-item nav-link" href="#about_area">Sobre</a>
-            <a class="nav-item nav-link" href="#skills_area">Conhecimento</a>
-            <a class="nav-item nav-link" href="#cvitae_area">Curriculum Vitae</a>
-            <a class="nav-item nav-link" id="contact-area" href="{% url 'portfolio:contact_mail' %}">Contato</a>
+<input id="hamburger" class="hamburger" type="checkbox" />
+<label for="hamburger" class="hamburger">
+    <i></i>
+  <text>
+      <close>close</close>
+      <open>menu</open>
+    </text>
+</label>
+<nav class="primnav">
+    <ul>
+      <li>
+        <a href="#dashboard">
+          <svg class="icon"><use xlink:href="#icon-th-large"></use></svg> Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#mail">
+          <svg class="icon"><use xlink:href="#icon-mail_outline"></use></svg> Mail
+          <div class="tag">53</div>
+        </a>
+        <ul class="secnav">
+          <li>
+            <a href="#inbox">Inbox</a>
+          </li>
+          <li>
+            <a href="#sent">Sent</a>
+          </li>
+        </ul>
+      </li>
+      <li>
+        <a href="#notifications">
+          <svg class="icon"><use xlink:href="#icon-bell2"></use></svg> Notifications
+          <div class="tag">17</div>
+        </a>
+      </li>
+      <li>
+        <a href="#sysadmin">
+          <svg class="icon"><use xlink:href="#icon-equalizer"></use></svg> System Administration
+        </a>
+        <ul class="secnav">
+          <li>
+            <a href="#users">Users</a>
+          </li>
+          <li>
+            <a href="#lists">Lists</a>
+          </li>
+          <li>
+            <a href="#calendar">Calendar</a>
+          </li>
+        </ul>
+      </li>
+    </ul>
+</nav>
 
-            {% if user.is_authenticated %}
-                <a href="{% url 'autores:dashboard_photo_new' %}">{% translate 'New work' %}</a>
-                <a href="{% url 'autores:dashboard' %}">{% translate 'Your dashboard' %}</a>
-                <a href="{% url 'portfolio:inventario' %}">{% translate 'Inventory' %}</a>
-                <a class="autores-logout-link" href="{% url 'autores:logout' %}">Logout</a>
-                {% include 'partials/form_logout.html' %}
-            {% else %}
-                <a href="{% url 'autores:login' %}">Login</a>
-                <a href="{% url 'autores:register' %}">{% translate 'Register' %}</a>
-            {% endif %}
-        </nav>
-    </div>
-</div>
+<user id="user">
+  <section>
+    <img src="https://randomuser.me/api/portraits/women/85.jpg" />
+    <section>
+      <name>Sarah Dekhard</name>
+      <actions><a href="#settings">settings</a> | <a href="#logout">logout</a></actions>
+    </section>
+  </section>
+</user>
+
+<content>
+  <nav class="tabs">
+    <ul>
+      <li><a class="tab" href="#">Tab One</a></li>
+      <li><a class="tab" href="#">Tab Two</a></li>
+      <li><a class="tab" href="#">Tab Three</a></li>
+      <li><a class="tab" href="#">Tab Four</a></li>
+      <li><a class="tab" href="#">Tab Five</a></li>
+    </ul>
+  </nav>
+  <ul class="features">
+    <li>
+      <svg class="icon"><use xlink:href="#icon-chrome"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-safari"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-edge"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-firefox"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-IE"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-opera"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-appleinc"></use></svg>
+      <svg class="icon"><use xlink:href="#icon-android"></use></svg>
+    </li>
+  </ul>
+</content>
