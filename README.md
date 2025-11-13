@@ -42,13 +42,13 @@ Configurações
 sudo -u postgres psql
 
 # Criando um super usuário
-CREATE ROLE usuario WITH LOGIN SUPERUSER CREATEDB CREATEROLE PASSWORD 'senha';
+CREATE ROLE fabio WITH LOGIN SUPERUSER CREATEDB CREATEROLE PASSWORD 'Flum1n3ns3#';
 
 # Criando a base de dados
-CREATE DATABASE basededados WITH OWNER usuario;
+CREATE DATABASE db_portfolio WITH OWNER fabio;
 
 # Dando permissões
-GRANT ALL PRIVILEGES ON DATABASE basededados TO usuario;
+GRANT ALL PRIVILEGES ON DATABASE db_portfolio TO fabio;
 
 # Saindo
 \q
@@ -58,8 +58,8 @@ Caso queira mais detalhes: https://youtu.be/VLpPLaGVJhI
 Mais avançado: https://youtu.be/FZaEukN_raA
 
 Configurando o git
-git config --global user.name 'Seu nome'
-git config --global user.email 'seu_email@gmail.com'
+git config --global user.name 'Fábio Moraes'
+git config --global user.email 'fmoraes05@gmail.com'
 git config --global init.defaultBranch main
 
 Criando um repositório no servidor
