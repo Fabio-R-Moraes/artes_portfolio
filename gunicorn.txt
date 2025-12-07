@@ -1,7 +1,7 @@
 ###############################################################################
 # Replace
 # portfoliomariana_ to the name of the gunicorn file you want
-# root to your user name
+# fabio to your user name
 # app_repo to the folder name of your project
 # projeto to the folder name where you find a file called wsgi.py
 #
@@ -32,15 +32,15 @@ Requires=portfoliomariana_.socket
 After=network.target
 
 [Service]
-User=root
+User=fabio
 Group=www-data
 Restart=on-failure
-EnvironmentFile=/home/root/app_repo/.env
-WorkingDirectory=/home/root/app_repo
+EnvironmentFile=/home/fabio/app_repo/.env
+WorkingDirectory=/home/fabio/app_repo
 # --error-logfile --enable-stdio-inheritance --log-level and --capture-output
 # are all for debugging purposes.
-ExecStart=/home/root/app_repo/venv/bin/gunicorn \
-          --error-logfile /home/root/app_repo/gunicorn-error-log \
+ExecStart=/home/fabio/app_repo/venv/bin/gunicorn \
+          --error-logfile /home/fabio/app_repo/gunicorn-error-log \
           --enable-stdio-inheritance \
           --log-level "debug" \
           --capture-output \

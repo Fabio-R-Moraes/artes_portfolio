@@ -2,10 +2,10 @@
 #
 # REPLACES
 # portfoliomarianamoraes.com.br = Replace with your domain
-# __PROJECT_FOLDER__ = Replace with the path to the folder for the project
-# __STATIC_FOLDER_PATH__ = Replace with the path to the folder for static files
-# __MEDIA_FOLDER_PATH__ = Replace with the path to the folder for media files
-# __SOCKET_NAME__ = Replace with your unix socket name
+#  /home/fabio/app_repo = Replace with the path to the folder for the project
+# /home/fabio/app_repo/static = Replace with the path to the folder for static files
+# /home/fabio/app_repo/media = Replace with the path to the folder for media files
+# portfoliomariana_.socket = Replace with your unix socket name
 # 
 # For letsencrypt and Ubuntu:
 # sudo apt update -y && sudo apt upgrade -y && sudo apt autoremove -y
@@ -13,7 +13,7 @@
 # sudo openssl dhparam -out /etc/ssl/certs/dhparam.pem 4096
 # sudo systemctl stop nginx
 # sudo certbot certonly --standalone -d portfoliomarianamoraes.com.br
-# sudo chmod -R 755 __PROJECT_FOLDER__
+# sudo chmod -R 755  /home/fabio/app_repo
 # sudo nano /etc/nginx/sites-available/portfoliomarianamoraes.com.br
 # Add contents of this file
 # sudo ln -s /etc/nginx/sites-available/portfoliomarianamoraes.com.br /etc/nginx/sites-enabled/portfoliomarianamoraes.com.br
@@ -68,21 +68,21 @@ server {
   # Add index.php to the list if you are using PHP
   index index.html index.htm index.nginx-debian.html index.php;
   
-  # ATTENTION: __STATIC_FOLDER_PATH__
+  # ATTENTION: /home/fabio/app_repo/static
   location /static {
     autoindex on;
-    alias __STATIC_FOLDER_PATH__;
+    alias /home/fabio/app_repo/static;
   }
 
-  # ATTENTION: __MEDIA_FOLDER_PATH__ 
+  # ATTENTION: /home/fabio/app_repo/media 
   location /media {
     autoindex on;
-    alias __MEDIA_FOLDER_PATH__;
+    alias /home/fabio/app_repo/media;
   }
 
-  # ATTENTION: __SOCKET_NAME__
+  # ATTENTION: portfoliomariana_.socket
   location / {
-    proxy_pass http://unix:/run/__SOCKET_NAME__;
+    proxy_pass http://unix:/run/portfoliomariana_.socket;
     proxy_http_version 1.1;
     proxy_set_header Upgrade $http_upgrade;
     proxy_set_header Connection 'upgrade';
